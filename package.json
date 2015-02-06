@@ -1,0 +1,43 @@
+{
+  "name": "ngSeedApp",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.html",
+  "scripts": {
+    "start": "gulp server && gulp watch",
+    "test": "npm run build && node_modules/karma-cli/bin/karma start test.config.js",
+    "build": "rm -fr ./build && gulp build",
+    "postinstall": "node_modules/bower/bin/bower install && gulp build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "event-stream": "^3.2.2",
+    "gulp": "^3.8.9",
+    "gulp-angular-filesort": "^1.0.4",
+    "gulp-cli": "^0.1.5",
+    "gulp-compass": "^2.0.1",
+    "gulp-concat": "^2.4.1",
+    "gulp-html2js": "^0.2.0",
+    "gulp-inject": "^1.1.1",
+    "gulp-merge": "^0.1.0",
+    "gulp-ng-html2js": "^0.1.8",
+    "gulp-ngmin": "^0.3.0",
+    "gulp-sourcemaps": "^1.2.7",
+    "gulp-uglify": "^1.0.1",
+    "gulp-watch": "^4.1.0",
+    "gulp-webserver": "^0.9.0",
+    "jasmine": "^2.1.1",
+    "jasmine-core": "^2.1.3",
+    "karma": "^0.12.31",
+    "karma-angular-filesort": "^0.1.0",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-cli": "0.0.4",
+    "karma-coverage": "^0.2.7",
+    "karma-firefox-launcher": "^0.1.4",
+    "karma-jasmine": "^0.3.5",
+    "karma-nested-reporter": "^0.1.3",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "main-bower-files": "^2.5.0"
+  }
+}
