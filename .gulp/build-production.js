@@ -33,6 +33,7 @@ function buildVendor () {
 
 function buildApp () {
     return gulp.src(cfg.paths.app)
+        .pipe(filesort())
         .pipe(concat('app.js'))
         .pipe(ngmin())
         .pipe(uglify({

@@ -35,7 +35,7 @@ function build () {
     gulp.src(cfg.paths.main)
         .pipe(inject(buildVendor(), { name: 'bower'}))
         .pipe(inject(
-            es.merge(gulp.src(cfg.paths.app, {read: false}).pipe(filesort()), buildTemplates())
+            es.merge(gulp.src(cfg.paths.app).pipe(filesort()), buildTemplates())
         ))
         .pipe(gulp.dest(cfg.paths.build));
 }
