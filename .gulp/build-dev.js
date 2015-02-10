@@ -6,6 +6,10 @@ var inject = require('gulp-inject');
 var es = require('event-stream');
 var filesort = require('gulp-angular-filesort');
 
+var less = require('gulp-less');
+var cleancss = new require("less-plugin-clean-css")({ advanced: true });
+
+
 var cfg = require('./config');
 
 function buildTemplates () {
@@ -31,12 +35,19 @@ function buildApp () {
         .pipe(gulp.dest(cfg.paths.build))
 }
 
+function buildStyles () {
+    return gulp.src(cfg.paths.style)
+        .pipe(less())
+        .pipe(gulp.dest(cfg.paths.build))
+}
+
 function build () {
     gulp.src(cfg.paths.main)
         .pipe(inject(buildVendor(), { name: 'bower'}))
         .pipe(inject(
             es.merge(gulp.src(cfg.paths.app).pipe(filesort()), buildTemplates())
         ))
+        .pipe(inject(buildStyles()))
         .pipe(gulp.dest(cfg.paths.build));
 }
 
@@ -44,4 +55,5 @@ function build () {
 gulp.task('build-templates', buildTemplates);
 gulp.task('build-vendor', buildVendor);
 gulp.task('build-app', buildApp);
+gulp.task('build-styles', buildStyles);
 gulp.task('build', build);

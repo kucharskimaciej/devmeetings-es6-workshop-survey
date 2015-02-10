@@ -16,6 +16,10 @@ function watchFiles () {
     watch(cfg.paths.templates, function () {
         gulp.start('build-templates');
     });
+
+    watch([cfg.paths.style, cfg.paths.styles], function () {
+        gulp.start('build-styles');
+    });
 }
 
 gulp.task('watch', watchFiles);
