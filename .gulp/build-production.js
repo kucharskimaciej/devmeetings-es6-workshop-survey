@@ -8,6 +8,9 @@ var filesort = require('gulp-angular-filesort');
 var ngmin = require('gulp-ngmin');
 var uglify = require('gulp-uglify');
 
+var less = require('gulp-less');
+var minifyCss = require('gulp-minify-css');
+
 var cfg = require('./config');
 
 function buildTemplates () {
@@ -41,6 +44,13 @@ function buildApp () {
         }));
 }
 
+function buildStyles () {
+    return gulp.src(cfg.paths.style)
+        .pipe(less())
+        .pipe(minifyCss())
+        .pipe(gulp.dest(cfg.paths.build))
+}
+
 function buildRelease () {
     return merge(buildVendor(), buildApp(), buildTemplates())
         .pipe(concat('release.js'))
@@ -50,6 +60,7 @@ function buildRelease () {
 function build () {
     return gulp.src(cfg.paths.main)
         .pipe(inject(buildRelease(), {relative: true, ignorePath: '../build'}))
+        .pipe(inject(buildStyles(), {relative: true, ignorePath: '../build'}))
         .pipe(gulp.dest(cfg.paths.build));
 }
 
