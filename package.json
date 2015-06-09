@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bower": "^1.4.1",
     "event-stream": "^3.2.2",
     "gulp": "^3.8.9",
     "gulp-angular-filesort": "^1.0.4",
@@ -20,7 +21,7 @@
     "gulp-concat": "^2.4.1",
     "gulp-html2js": "^0.2.0",
     "gulp-inject": "^1.1.1",
-    "gulp-less": "^2.0.1",
+    "gulp-less": "*",
     "gulp-merge": "^0.1.0",
     "gulp-ng-html2js": "^0.1.8",
     "gulp-ngmin": "^0.3.0",
