@@ -10,6 +10,7 @@
         </li>
     </ul>
     <footer>
-        <button ng-disabled="!user.selected" ng-click="ctrl.answer(user.selected)">Answer</button>
+        <button ng-disabled="!user.selected" ng-click="ctrl.answer(user.selected)">Gotowe!</button>
+        <span>Pytanie {{ ctrl.count }} z {{ ctrl.questions.length }}</span>
     </footer>
 </article>
