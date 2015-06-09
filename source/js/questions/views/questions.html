@@ -1,6 +1,6 @@
-<article ng-repeat="question in ctrl.questions | filter:{id: ctrl.current}">
-    <header>{{ question.question }}</header>
+<article class="Question" ng-repeat="question in ctrl.questions | filter:{id: ctrl.current}">
     <pre>{{ question.code }}</pre>
+    <header>{{ question.question }}</header>
     <ul ng-init="user = {}">
         <li ng-repeat="answer in question.answers">
             <label>
@@ -10,7 +10,7 @@
         </li>
     </ul>
     <footer>
-        <button ng-disabled="!user.selected" ng-click="ctrl.answer(user.selected)">Gotowe!</button>
-        <span>Pytanie {{ ctrl.count }} z {{ ctrl.questions.length }}</span>
+        <button class="Question-answer" ng-disabled="!user.selected" ng-click="ctrl.answer(user.selected)">Gotowe!</button>
+        <span class="Question-count">Pytanie {{ ctrl.count }} z {{ ctrl.questions.length }}</span>
     </footer>
 </article>
