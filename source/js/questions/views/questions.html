@@ -1,0 +1,15 @@
+<article ng-repeat="question in ctrl.questions | filter:{id: ctrl.current}">
+    <header>{{ question.question }}</header>
+    <pre>{{ question.code }}</pre>
+    <ul ng-init="user = {}">
+        <li ng-repeat="answer in question.answers">
+            <label>
+                <input type="radio" ng-model="user.selected" ng-value="answer.id">
+                {{ answer.text }}
+            </label>
+        </li>
+    </ul>
+    <footer>
+        <button ng-disabled="!user.selected" ng-click="ctrl.answer(user.selected)">Answer</button>
+    </footer>
+</article>

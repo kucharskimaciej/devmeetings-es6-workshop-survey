@@ -1,3 +1,8 @@
+angular.module('templates', []);
+angular.module('questions', [ 'templates' ]);
 
-
-angular.module('app', [ 'ui.router' ]);
+angular.module('app', [
+    'templates',
+    'ui.router',
+    'questions'
+]);
